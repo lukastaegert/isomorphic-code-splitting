@@ -1,4 +1,4 @@
-import {html, React} from '../setup/setup.js';
+import {html, React} from '../setup.js';
 
 export const Counter = props => {
     const [count, setCount] = React.useState(parseInt(props.count));
