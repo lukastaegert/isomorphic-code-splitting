@@ -1,14 +1,22 @@
 {
   "name": "react-rollup-without-dev-setup",
   "scripts": {
-    "start": "servor"
+    "start": "servor",
+    "build": "npx rollup -c",
+    "serve-build": "npm run build && servor dist index.html 8081 5001"
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "babel-plugin-htm": "^2.2.0",
+    "csz": "^1.1.1",
     "es-react": "^16.8.60",
     "es-react-production": "^16.8.30",
     "htm": "^2.2.1",
+    "rimraf": "^3.0.0",
     "rollup": "^1.21.2",
+    "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-terser": "^5.1.1",
     "servor": "^2.2.1"
   }
