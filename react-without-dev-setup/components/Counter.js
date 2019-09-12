@@ -7,6 +7,7 @@ const styles = css`
 
 export const Counter = props => {
   const [count, setCount] = React.useState(parseInt(props.count));
+
   return html`
     <div className=${styles}>
       <button onClick="${() => setCount(count - 1)}">Decrement</button>

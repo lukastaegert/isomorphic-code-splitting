@@ -15,9 +15,12 @@ code {
 
 button {
   border: 0;
-  padding: 5px;
-  margin: 5px;
+  line-height: 30px;
+  padding: 0 10px;
+  height: 30px;
+  margin: 0 10px;
   outline: none;
+  font: inherit;
 }
 
 button:hover {
