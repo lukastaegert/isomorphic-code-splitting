@@ -1,34 +1,98 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-	<meta charset="UTF-8">
-	<title>Flexbox und CSS-Grid</title>
-	<link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
-	<link rel="stylesheet" href="node_modules/reveal.js/css/theme/beige.css">
-	<link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>RollupJS</title>
+  <link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="node_modules/reveal.js/css/theme/beige.css">
+  <link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<div class="reveal">
-		<div class="slides">
-			<section>
-			</section>
-		</div>
-	</div>
-	<script src="node_modules/reveal.js/js/reveal.js"></script>
-	<script>
-        Reveal.initialize({
-            hash: true,
-            progress: true,
-            dependencies: [
-                {
-                    src: 'node_modules/reveal.js/plugin/highlight/highlight.js',
-                    async: true,
-                    callback: () => hljs.initHighlightingOnLoad()
-                },
-                {src: 'node_modules/reveal.js/plugin/notes/notes.js'}
-            ]
-        });
-	</script>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h2>Isomorphic</h2>
+        <h1 class="title-script">Code Splitting</h1>
+        <h2>for the Future of Web Development</h2>
+        <p>Lukas Taegert-Atkinson<br><a href="https://www.tngtech.com/"><img src="img/tng.svg"></a></p>
+      </section>
+      <section>
+        <h2>About RollupJS</h2>
+        <img src="img/rollup.svg" alt="Rollup Logo" class="section-appear" style="float:left; height: 300px; animation-delay:0.4s">
+        <ul>
+          <li class="section-appear" style="animation-delay:0.6s">Bundles and optimizes JavaScript</li>
+          <li class="section-appear" style="animation-delay:0.8s">Created by Rich Harris in 2015</li>
+          <li class="fragment" data-fragment-index="1">
+            Used by
+            <span class="fragment appear" data-fragment-index="1" style="animation-delay:0.4s">React,</span>
+            <span class="fragment appear" data-fragment-index="1" style="animation-delay:0.6s">Vue,</span>
+            <span class="fragment appear" data-fragment-index="1" style="animation-delay:0.8s">Ember,</span>
+            <span class="fragment appear" data-fragment-index="1" style="animation-delay:1.0s">Angular,<br></span>
+            <span class="fragment appear" data-fragment-index="1" style="animation-delay:1.2s">D3,</span>
+            <span class="fragment appear" data-fragment-index="1" style="animation-delay:1.4s">Jest,</span>
+            <span class="fragment appear" data-fragment-index="1" style="animation-delay:1.6s">Prettier,</span>
+            <span class="fragment appear" data-fragment-index="1" style="animation-delay:1.8s">Bloomberg…</span>
+          </li>
+          <li class="fragment" data-fragment-index="2">Core part of StencilJS</li>
+        </ul>
+      </section>
+      <section>
+        <h2>About myself</h2>
+        <ul>
+          <li>Rollup contributor since Jul 2017</li>
+          <li>Acting maintainer and core<br>developer since Nov 2017</li>
+          <li>❤️ tree-shaking and<br>static code-optimization</li>
+        </ul>
+      </section>
+      <section>
+        <section>
+          <h1 class="title-script">1</h1>
+          <h2>Let's talk about Web-Development<br>
+              ...and <a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f">JavaScript fatigue</a>?</h2>
+        </section>
+        <section>
+          <h2>Web-development in 2009</h2>
+          <pre style="width:60%;"><code class="lang-xml hljs" style="padding:15px">&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;</code></pre>
+        </section>
+        <section>
+          <h2>Web-development in 2019</h2>
+          <pre style="width:80%;"><code class="lang-xml hljs" style="padding:15px">ℹ ｢wds｣: Project is running at https://localhost:8080/
+Version: webpack 4.35.0
+Time: 24334ms
+    ...
+    + 1388 hidden modules
+ℹ ｢wdm｣: Compiled successfully.
+</code></pre>
+        </section>
+        <section>
+          <h4 class="question">What happened?</h4>
+          <p>Projects got bigger. People do not like big files.</p>
+          <h4 class="question">But isn't there a module system now?</h4>
+          <p>Jup</p>
+          <h4 class="question">Supported by all major browsers?</h4>
+          <p>Possibly</p>
+          <h4 class="question">But couldn't I just use these modules…</h4>
+          <p>You mean, without tooling!??</p>
+        </section>
+      </section>
+    </div>
+  </div>
+  <script src="node_modules/reveal.js/js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      progress: true,
+      dependencies: [
+        {
+          src: 'node_modules/reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          callback: () => hljs.initHighlightingOnLoad()
+        },
+        {src: 'node_modules/reveal.js/plugin/notes/notes.js'}
+      ]
+    });
+  </script>
 </body>
 </html>

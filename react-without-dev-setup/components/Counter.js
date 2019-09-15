@@ -5,8 +5,8 @@ const styles = css`
   align-items: center;
 `;
 
-export const Counter = props => {
-  const [count, setCount] = React.useState(parseInt(props.count));
+export default ({count: initialCount}) => {
+  const [count, setCount] = React.useState(parseInt(initialCount));
 
   return html`
     <div className=${styles}>

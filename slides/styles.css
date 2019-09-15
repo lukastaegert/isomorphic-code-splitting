@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'thirsty_script';
+  font-style: normal;
+  font-weight: normal;
+  src: url("./thirsty-script-extrabold.woff") format("woff");
+}
+
+.reveal .title-script {
+  font-family: thirsty_script, "League Gothic", Impact, sans-serif;
+  text-transform: none;
+  margin: -50px;
+  color: #d82a2a;
+  z-index: 1;
+  position: relative;
+  top: -15px
+}
+
+.reveal .question {
+  margin-bottom: -20px;
+  margin-top: 30px;
+}
+
+.reveal section img {
+  border: 0;
+  box-shadow: none;
+}
+
+.reveal pre code {
+  padding: 10px;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+section.future .section-appear {
+  animation: none;
+}
+
+.appear {
+  opacity: 0;
+  animation: none;
+}
+
+.section-appear,
+.appear.current-fragment {
+  animation: appear 1s ease both;
+}

@@ -1,12 +1,12 @@
 {
   "description": "Rollup Presentation for Bloomberg",
   "scripts": {
-    "start": "serve"
+    "start": "servor . index.html 8082 5002"
   },
   "author": "Lukas Taegert-Atkinson",
   "license": "Apache-2.0",
   "dependencies": {
     "reveal.js": "^3.8.0",
-    "serve": "^11.1.0"
+    "servor": "^2.2.1"
   }
 }

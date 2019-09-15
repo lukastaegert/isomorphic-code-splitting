@@ -1,20 +1,7 @@
-import {Counter} from './components/Counter.js';
-import LazyComponentLoader from './components/LazyComponentLoader.js';
-import {React, ReactDOM, html, css} from './shared.js';
-
-const styles = css`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+import App from './components/App.js';
+import {html, React, ReactDOM} from './shared.js';
 
 ReactDOM.render(
-  html`
-    <div className=${styles}>
-      <${Counter} count="1" />
-      <${LazyComponentLoader} />
-    </div>
-  `,
+  html`<${App} />`,
   document.getElementById('root')
 );
