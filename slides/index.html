@@ -47,9 +47,10 @@
       </section>
       <section>
         <section>
-          <h1 class="title-script">1</h1>
-          <h2>Let's talk about Web-Development<br>
-              ...and <a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f">JavaScript fatigue</a>?</h2>
+          <h1>1</h1>
+          <h2>Let's talk about</h2>
+          <h1 class="title-script-smaller">Web Development</h1>
+          <h2>…and <a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f">JavaScript fatigue</a>?</h2>
         </section>
         <section>
           <h2>Web-development in 2009</h2>
@@ -66,15 +67,56 @@ Time: 24334ms
 ℹ ｢wdm｣: Compiled successfully.
 </code></pre>
         </section>
+        <section style="display: flex; flex-direction: column;">
+          <p><span class="bold">What happened?</span> Projects got bigger.<br>People do not like big files.</p>
+          <p><span class="bold">But isn't there a module system now?</span> Jup.</p>
+          <p><span class="bold">Supported by all major browsers?</span> Possibly.</p>
+          <p><span class="bold">But couldn't I just use these modules…</span><br>You mean, without tooling!??</p>
+          <aside class="notes">
+            <ol>
+              <li>Show basic setup without code-splitting</li>
+              <li>Show trivial Rollup config (+copying)</li>
+              <li>Optimize setup (react prod, terser, babel)</li>
+            </ol>
+          </aside>
+        </section>
         <section>
-          <h4 class="question">What happened?</h4>
-          <p>Projects got bigger. People do not like big files.</p>
-          <h4 class="question">But isn't there a module system now?</h4>
-          <p>Jup</p>
-          <h4 class="question">Supported by all major browsers?</h4>
-          <p>Possibly</p>
-          <h4 class="question">But couldn't I just use these modules…</h4>
-          <p>You mean, without tooling!??</p>
+          <p>Heavily based on <a
+            href="https://github.com/lukejacksonn/create-es-react-app"
+            class="bold-small">create-es-react-app</a> by <span
+            class="bold">Luke Jackson</span>,
+          </p>
+          <p>
+            featuring
+          </p>
+          <p>
+            <a
+              href="https://github.com/lukejacksonn/es-react"
+              class="bold-small">es-react</a>, <a
+            href="https://github.com/lukejacksonn/csz"
+            class="bold-small">csz</a> and <a
+            href="https://github.com/lukejacksonn/servor"
+            class="bold-small">servor</a> by <a
+            href="https://twitter.com/lukejacksonn"
+            class="bold">Luke Jackson</a>,
+            <br><a
+            href="https://github.com/developit/htm"
+            class="bold-small">htm</a> by <a
+            href="https://twitter.com/_developit"
+            class="bold">Jason Miller</a></p>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>2</h1>
+          <h2>Isomorphic Bundling and</h2>
+          <h1 class="title-script-smaller">Code Splitting</h1>
+        </section>
+        <section>
+          <div style="display: inline-flex;align-items: flex-start">
+            <div class="bold-small">Runtime</div>
+            <div>Text<br>Text</div>
+          </div>
         </section>
       </section>
     </div>

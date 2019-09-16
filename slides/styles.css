@@ -12,12 +12,28 @@
   color: #d82a2a;
   z-index: 1;
   position: relative;
-  top: -15px
+  top: -15px;
+  font-size: 140px;
 }
 
-.reveal .question {
-  margin-bottom: -20px;
-  margin-top: 30px;
+.reveal .title-script-smaller {
+  font-family: thirsty_script, "League Gothic", Impact, sans-serif;
+  text-transform: none;
+  margin: -50px;
+  color: #d82a2a;
+  z-index: 1;
+  position: relative;
+  top: -15px;
+  font-size: 100px;
+}
+
+.bold {
+  font-family: "League Gothic", Impact, sans-serif;
+  text-transform: uppercase;
+}
+
+.bold-small {
+  font-family: "League Gothic", Impact, sans-serif;
 }
 
 .reveal section img {
