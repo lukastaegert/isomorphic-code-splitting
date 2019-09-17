@@ -113,9 +113,60 @@ Time: 24334ms
           <h1 class="title-script-smaller">Code Splitting</h1>
         </section>
         <section>
-          <div style="display: inline-flex;align-items: flex-start">
-            <div class="bold-small">Runtime</div>
-            <div>Text<br>Text</div>
+          <h3>Traditional code-splitting</h3>
+          <div style="display:inline-flex">
+            <div style="width:300px;">
+              <div style="text-align: left" class="fragment fade-in" data-fragment-index="1">
+                Modules are wrapped as functions in tables in each chunk.<br><br>
+                The runtime knows how to load each module.
+              </div>
+            </div>
+            <div style="position:relative; width:600px; height: 600px;">
+              <img src="img/modules.svg" style="position:absolute;top:0;left:0;right:0" class="fragment fade-out" data-fragment-index="1">
+              <img src="img/runtime-chunking.svg" style="position:absolute;top:0;left:0;right:0" class="fragment fade-in"
+                   data-fragment-index="1">
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>Rollup code-splitting</h3>
+          <div style="display:inline-flex">
+            <div style="width:300px;position: relative;">
+              <div style="text-align:left;position:absolute;top:0;left:0;right:0;"
+                   class="fragment fade-in-then-out"
+                   data-fragment-index="1">
+                Starting with an entry point, assign a "color" (=hash) to each direct dependency.
+              </div>
+              <div style="text-align:left;position:absolute;top:0;left:0;right:0;"
+                   class="fragment fade-in-then-out"
+                   data-fragment-index="2">
+                Continue with other entry points, mixing colors if necessary.
+              </div>
+              <div style="text-align:left;position:absolute;top:0;left:0;right:0;"
+                   class="fragment fade-in"
+                   data-fragment-index="3">
+                Merge the modules in each chunk.<br><br>
+                As each chunk is still a module, no additional runtime is needed.
+              </div>
+            </div>
+            <div style="position:relative; width:600px; height: 600px;">
+              <img src="img/modules.svg"
+                   style="position:absolute;top:0;left:0;right:0;"
+                   class="fragment fade-out"
+                   data-fragment-index="1">
+              <img src="img/rollup-chunking-start-colouring.svg"
+                   style="position:absolute;top:0;left:0;right:0;"
+                   class="fragment fade-in-then-out"
+                   data-fragment-index="1">
+              <img src="img/rollup-chunking-coloured.svg"
+                   style="position:absolute;top:0;left:0;right:0"
+                   class="fragment fade-in-then-out"
+                   data-fragment-index="2">
+              <img src="img/rollup-chunking-done.svg"
+                   style="position:absolute;top:0;left:0;right:0"
+                   class="fragment fade-in"
+                   data-fragment-index="3">
+            </div>
           </div>
         </section>
       </section>

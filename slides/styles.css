@@ -8,7 +8,7 @@
 .reveal .title-script {
   font-family: thirsty_script, "League Gothic", Impact, sans-serif;
   text-transform: none;
-  margin: -50px;
+  margin: -30px;
   color: #d82a2a;
   z-index: 1;
   position: relative;
@@ -19,7 +19,7 @@
 .reveal .title-script-smaller {
   font-family: thirsty_script, "League Gothic", Impact, sans-serif;
   text-transform: none;
-  margin: -50px;
+  margin: -30px;
   color: #d82a2a;
   z-index: 1;
   position: relative;
