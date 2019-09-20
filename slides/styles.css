@@ -66,6 +66,7 @@ section.future .section-appear {
 .section-appear,
 .appear.current-fragment {
   animation: appear 1s ease both;
+  animation-delay: 0.4s;
 }
 
 body {
@@ -74,7 +75,7 @@ body {
 
 .chapter::before {
   counter-increment: chapter;
-  content:  counter(chapter);
+  content: counter(chapter);
 }
 
 ul.hands {
@@ -88,4 +89,39 @@ ul.hands li {
 ul.hands li::before {
   content: '☞';
   margin-right: 10px;
+}
+
+.reveal .slides section .fragment.marker {
+  opacity: 1;
+  visibility: inherit;
+  padding: 0 5px;
+  margin: 0 -5px
+}
+
+.reveal .slides section .fragment.marker.visible,
+.reveal .slides section .fragment.marker.visible .hljs-built_in,
+.reveal .slides section .fragment.marker.visible .hljs-string,
+.reveal .slides section .fragment.marker.visible .hljs-number,
+.reveal .slides section .fragment.marker.visible .hljs-keyword {
+  color: black;
+}
+
+.reveal .slides section .fragment.marker.blue.visible,
+.reveal .slides section .fragment.marker.blue.visible .hljs-built_in,
+.reveal .slides section .fragment.marker.blue.visible .hljs-string,
+.reveal .slides section .fragment.marker.blue.visible .hljs-number,
+.reveal .slides section .fragment.marker.blue.visible .hljs-keyword {
+  color: white;
+}
+
+.reveal .slides section .fragment.marker.yellow.visible {
+  background-color: yellow;
+}
+
+.reveal .slides section .fragment.marker.blue.visible {
+  background-color: blue;
+}
+
+.reveal .slides section .fragment.marker.cyan.visible {
+  background-color: cyan;
 }
