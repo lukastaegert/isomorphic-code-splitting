@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>RollupJS</title>
+  <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
   <link rel="stylesheet" href="node_modules/reveal.js/css/theme/beige.css">
   <link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
@@ -16,6 +17,14 @@
         <h1 class="title-script">Code Splitting</h1>
         <h2>for the Future of Web Development</h2>
         <p>Lukas Taegert-Atkinson<br><a href="https://www.tngtech.com/"><img src="img/tng.svg"></a></p>
+      </section>
+      <section>
+        <h2>About myself</h2>
+        <ul>
+          <li>Rollup contributor since Jul 2017</li>
+          <li>Acting maintainer and core<br>developer since Nov 2017</li>
+          <li>❤️ tree-shaking and<br>static code-optimization</li>
+        </ul>
       </section>
       <section>
         <h2>About RollupJS</h2>
@@ -38,19 +47,10 @@
         </ul>
       </section>
       <section>
-        <h2>About myself</h2>
-        <ul>
-          <li>Rollup contributor since Jul 2017</li>
-          <li>Acting maintainer and core<br>developer since Nov 2017</li>
-          <li>❤️ tree-shaking and<br>static code-optimization</li>
-        </ul>
-      </section>
-      <section>
         <section>
-          <h1>1</h1>
-          <h2>Let's talk about</h2>
-          <h1 class="title-script-smaller">Web Development</h1>
-          <h2>…and <a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f">JavaScript fatigue</a>?</h2>
+          <h1 class="chapter"></h1>
+          <h2>Modern Web</h2>
+          <h1 class="title-script-smaller">Development</h1>
         </section>
         <section>
           <h2>Web-development in 2009</h2>
@@ -66,12 +66,16 @@ Time: 24334ms
     + 1388 hidden modules
 ℹ ｢wdm｣: Compiled successfully.
 </code></pre>
+          <p>
+            Just like <a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f">2016</a>?
+          </p>
         </section>
         <section style="display: flex; flex-direction: column;">
           <p><span class="bold">What happened?</span> Projects got bigger.<br>People do not like big files.</p>
           <p><span class="bold">But isn't there a module system now?</span> Jup.</p>
           <p><span class="bold">Supported by all major browsers?</span> Possibly.</p>
-          <p><span class="bold">But couldn't I just use these modules…</span><br>You mean, without tooling!??</p>
+          <p><span class="bold">But couldn't I just use these modules…</span></p>
+          <h3>Development without a build step?</h3>
           <aside class="notes">
             <ol>
               <li>Show basic setup without code-splitting</li>
@@ -105,19 +109,39 @@ Time: 24334ms
             href="https://twitter.com/_developit"
             class="bold">Jason Miller</a></p>
         </section>
+        <section>
+          <h3>Limitations</h3>
+          <ul>
+            <li>
+              Libraries need to be ES modules<br>
+              ☞ Make PRs, create forks
+            </li>
+            <li>
+              Imports need to be relative<br>
+              ☞ Use <a href="https://github.com/WICG/import-maps">import maps</a> in development<br>
+              <span style="font-size:30px">(chrome://flags → All experimental built-in modules)</span><br>
+              <pre style="display:inline-block;width:inherit"><code>&lt;script type=&quot;importmap&quot;&gt;{&quot;imports&quot;: {
+    &quot;es-react&quot;: &quot;./node_modules/es-react/index.js&quot;
+  }}&lt;/script&gt;</code></pre>
+            </li>
+          </ul>
+        </section>
       </section>
       <section>
         <section>
-          <h1>2</h1>
+          <h1 class="chapter"></h1>
           <h2>Isomorphic Bundling and</h2>
           <h1 class="title-script-smaller">Code Splitting</h1>
+          <aside class="notes">
+            Show dynamic chunking demo after this slide.
+          </aside>
         </section>
         <section>
           <h3>Traditional code-splitting</h3>
           <div style="display:inline-flex">
-            <div style="width:300px;">
+            <div style="width:320px;">
               <div style="text-align: left" class="fragment fade-in" data-fragment-index="1">
-                Modules are wrapped as functions in tables in each chunk.<br><br>
+                Modules are wrapped in functions in tables in each chunk.<br><br>
                 The runtime knows how to load each module.
               </div>
             </div>
@@ -131,44 +155,257 @@ Time: 24334ms
         <section>
           <h3>Rollup code-splitting</h3>
           <div style="display:inline-flex">
-            <div style="width:300px;position: relative;">
-              <div style="text-align:left;position:absolute;top:0;left:0;right:0;"
+            <div style="width:320px;position: relative;">
+              <div style="position:absolute;top:0;left:0;right:0;"
                    class="fragment fade-in-then-out"
                    data-fragment-index="1">
-                Starting with an entry point, assign a "color" (=hash) to each direct dependency.
+                <pre><code class="lang-javascript hljs" style="padding:15px">input: [
+  "Entry A",
+  "Entry B"
+]</code></pre>
+                or
+                <pre><code class="lang-javascript hljs" style="padding:15px">input: {
+  nameA: "Entry A",
+  nameB: "Entry B"
+}</code></pre>
               </div>
               <div style="text-align:left;position:absolute;top:0;left:0;right:0;"
                    class="fragment fade-in-then-out"
                    data-fragment-index="2">
+                Starting with an entry point, assign the same "color" to each direct dependency.
+              </div>
+              <div style="text-align:left;position:absolute;top:0;left:0;right:0;"
+                   class="fragment fade-in-then-out"
+                   data-fragment-index="3">
                 Continue with other entry points, mixing colors if necessary.
               </div>
               <div style="text-align:left;position:absolute;top:0;left:0;right:0;"
                    class="fragment fade-in"
-                   data-fragment-index="3">
+                   data-fragment-index="4">
                 Merge the modules in each chunk.<br><br>
-                As each chunk is still a module, no additional runtime is needed.
+                Each chunk is still a module.
               </div>
             </div>
             <div style="position:relative; width:600px; height: 600px;">
               <img src="img/modules.svg"
                    style="position:absolute;top:0;left:0;right:0;"
                    class="fragment fade-out"
-                   data-fragment-index="1">
+                   data-fragment-index="2">
               <img src="img/rollup-chunking-start-colouring.svg"
                    style="position:absolute;top:0;left:0;right:0;"
                    class="fragment fade-in-then-out"
-                   data-fragment-index="1">
+                   data-fragment-index="2">
               <img src="img/rollup-chunking-coloured.svg"
                    style="position:absolute;top:0;left:0;right:0"
                    class="fragment fade-in-then-out"
-                   data-fragment-index="2">
+                   data-fragment-index="3">
               <img src="img/rollup-chunking-done.svg"
                    style="position:absolute;top:0;left:0;right:0"
                    class="fragment fade-in"
-                   data-fragment-index="3">
+                   data-fragment-index="4">
             </div>
           </div>
         </section>
+        <section>
+          <h3>How is this "isomorphic"?</h3>
+          <p><span class="bold">No added wrappers</span>, there is a 1-to-1 equivalence<br>between bindings
+          </p>
+          <p>You can <span class="bold">bundle it again</span> for the same output.</p>
+        </section>
+        <section>
+          <h3>Under the hood</h3>
+          <div
+            style="display:grid;grid-template-columns:min-content max-content;grid-template-rows:max-content min-content max-content min-content;justify-items: flex-start; justify-content: center;align-items: flex-start;">
+            <div style="grid-row:1/2;grid-column:1/2"><span class="bold">BUILD PHASE</span></div>
+            <pre style="grid-row:2/3;grid-column:1/2;width:100%;"><code class="lang-javascript hljs" style="padding:15px">const bundle = await
+  rollup.rollup(
+    inputOptions
+  )</code></pre>
+            <div style="grid-row:1/3;grid-column:2/3;margin-bottom: 15px;">
+              <ul>
+                <li>
+                  build module graph<br>
+                  (resolve→load→transform<br>→parse⇢link modules)
+                </li>
+                <li>mark included statements</li>
+                <li style="color:blue">generate chunks</li>
+              </ul>
+            </div>
+            <div style="grid-row:3/4;grid-column:1/2"><span class="bold">GENERATE PHASE</span></div>
+            <pre style="grid-row:4/5;grid-column:1/2;width:100%;"><code class="lang-javascript hljs" style="padding:15px">const result = await
+  bundle.generate(
+    outputOptions
+  )</code></pre>
+            <div style="grid-row:3/5;grid-column:2/3">
+              <ul>
+                <li>
+                  pre-render chunks<br>
+                  (remove imports, exports<br>and unused, fix variable names)
+                </li>
+                <li>determine chunk names</li>
+                <li>render chunk imports/exports</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>Generating Chunks</h3>
+          <ul>
+            <li>"Colors" = random hashes</li>
+            <li>
+              "Mixing colors" = XOR hashes
+              <p>→ grouped modules</p>
+            </li>
+            <li>Determine chunk imports/exports</li>
+            <li>Generate façade (reexport) chunks<br>for entry modules if necessary</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Plugin support</h3>
+          <ul>
+            <li>
+              <span class="bold-small">referenceId = <a
+                href="https://rollupjs.org/guide/en/#thisemitfileemittedfile-emittedchunk--emittedasset--string">this.emitFile</a>({type: 'chunk', id})</span><br>
+              adds new entry modules to the graph
+            </li>
+            <li>
+              <span class="bold-small">fileName = <a
+                href="https://rollupjs.org/guide/en/#thisgetfilenamereferenceid-string--string">this.getFileName</a>(referenceId)</span><br>
+              get chunk name in <span class="bold-small">generateBundle</span>
+            </li>
+            <li><span class="bold-small"><a
+              href="https://rollupjs.org/guide/en/#file-urls">import.meta.ROLLUP_FILE_URL</a>_referenceId</span><br>
+              reference chunks in modules
+            </li>
+          </ul>
+          <ul class="hands">
+            <li>parse entry points from an HTML file and replace with generated chunks</li>
+            <li>create chunks for workers</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Supporting legacy browsers</h3>
+          <ul class="hands">
+            <li><a class="bold" href="https://github.com/uupaa/dynamic-import-polyfill">Polyfill dynamic import</a> for ES6+ browsers via
+              <span class="bold-small">dynamicImportFunction</span> option
+            </li>
+            <li>Use <span class="bold">SystemJS</span> format for older browsers</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1 class="chapter"></h1>
+          <h2>Next steps for the</h2>
+          <h1 class="title-script-smaller">Future</h1>
+        </section>
+        <section>
+          <h3>Improved dynamic import code-splitting</h3>
+          <div style="display:inline-flex">
+            <div style="width:320px;text-align: left">
+              <p>
+                <span class="bold">Today:</span> Dynamic imports are regular entry points
+              </p>
+              <p class="fragment fade-in" data-fragment-index="1">
+                <span class="bold">Future:</span> Take already loaded modules into account
+              </p>
+            </div>
+            <div style="position:relative; width:600px;">
+              <img src="img/dynamic-imports-today.svg"
+                   style="position:absolute;top:0;left:0;right:0;"
+                   class="fragment fade-out"
+                   data-fragment-index="1">
+              <img src="img/dynamic-imports-future.svg"
+                   style="position:absolute;top:0;left:0;right:0;"
+                   class="fragment fade-in"
+                   data-fragment-index="1">
+            </div>
+          </div>
+          <p class="fragment"><span class="bold">Timeframe:</span> Soon!</p>
+        </section>
+        <section>
+          <h3>Statement-level code-splitting</h3>
+          <div style="display:inline-flex;text-align: left">
+            <div style="display: flex;flex-direction: column">
+              <div>
+                entry-a.js
+                <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs">import {x} from './lib.js'
+console.log(x)</code></pre>
+              </div>
+              <div>
+                entry-b.js
+                <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs">import {y} from './lib.js'
+console.log(y)</code></pre>
+              </div>
+              <div>
+                lib.js
+                <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs">console.log('Hello')
+export const x = 1
+export const y = 2</code></pre>
+              </div>
+            </div>
+            <div>
+              <div>
+                entry-a.js
+                <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs">import './chunk.js'
+const x = 1
+console.log(x)</code></pre>
+              </div>
+              <div>
+                entry-b.js
+                <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs">import './chunk.js'
+const y = 2
+console.log(y)</code></pre>
+              </div>
+              <div>
+                chunk.js
+                <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs">console.log('Hello')</code></pre>
+              </div>
+            </div>
+          </div>
+          <p class="fragment"><span class="bold">Timeframe:</span> Remote future</p>
+        </section>
+        <section>
+          <h3>Object property tree-shaking</h3>
+          <div style="display:inline-flex;text-align: left">
+            <div style="display: flex;flex-direction: column">
+              main.js
+              <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs">const config = {
+  title: 'My Object',
+  attribute: 'totally ignored'
+}
+config.title += ' is cool'
+console.log(config.title)</code></pre>
+            </div>
+            <div>
+              bundle.js
+              <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs">const config = {
+  title: 'My Object'
+}
+config.title += ' is cool'
+console.log(config.title)</code></pre>
+            </div>
+          </div>
+          <p class="fragment"><span class="bold">Timeframe:</span> Slightly less remote future</p>
+        </section>
+        <section>
+          <h3>To make this possible, we need</h3>
+          <h1 class="title-script-smaller">You</h1>
+          <ul>
+            <li>Improve documentation</li>
+            <li>Find bugs, fix bugs</li>
+            <li>Create plugins, maintain plugins</li>
+            <li>Drive discussions to shape the future</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <h2>What you may have</h2>
+        <h1 class="title-script-smaller">Learned</h1>
+        <ul>
+          <li>The future does not need build steps</li>
+          <li>Embrace a future without build steps</li>
+        </ul>
       </section>
     </div>
   </div>

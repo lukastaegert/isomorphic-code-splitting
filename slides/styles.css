@@ -67,3 +67,25 @@ section.future .section-appear {
 .appear.current-fragment {
   animation: appear 1s ease both;
 }
+
+body {
+  counter-reset: chapter
+}
+
+.chapter::before {
+  counter-increment: chapter;
+  content:  counter(chapter);
+}
+
+ul.hands {
+  list-style-type: none;
+}
+
+ul.hands li {
+  margin: 10px 0;
+}
+
+ul.hands li::before {
+  content: '☞';
+  margin-right: 10px;
+}
