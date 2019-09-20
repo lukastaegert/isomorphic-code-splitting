@@ -21,22 +21,22 @@
       <section>
         <h2>About myself</h2>
         <ul>
-          <li>Rollup contributor since Jul 2017</li>
-          <li>Acting maintainer and core<br>developer since Nov 2017</li>
-          <li>❤️ tree-shaking and<br>static code-optimization</li>
+          <li class="section-appear">Rollup contributor since Jul 2017</li>
+          <li class="section-appear two">Acting maintainer and core<br>developer since Nov 2017</li>
+          <li class="section-appear three">❤️ tree-shaking and<br>static code-optimization</li>
         </ul>
       </section>
       <section>
         <h2>About RollupJS</h2>
-        <img src="img/rollup.svg" alt="Rollup Logo" class="section-appear" style="float:left; height: 300px; animation-delay:0.4s">
+        <img src="img/rollup.svg" alt="Rollup Logo" class="section-appear" style="float:left; height: 300px;">
         <ul>
-          <li class="section-appear" style="animation-delay:0.6s">Bundles and optimizes JavaScript</li>
-          <li class="section-appear" style="animation-delay:0.8s">Created by Rich Harris in 2015</li>
+          <li class="section-appear two">Bundles and optimizes JavaScript</li>
+          <li class="section-appear three">Created by Rich Harris in 2015</li>
           <li class="fragment" data-fragment-index="1">
             Used by
-            <span class="fragment appear" data-fragment-index="1" style="animation-delay:0.4s">React,</span>
-            <span class="fragment appear" data-fragment-index="1" style="animation-delay:0.6s">Vue,</span>
-            <span class="fragment appear" data-fragment-index="1" style="animation-delay:0.8s">Ember,</span>
+            <span class="fragment appear" data-fragment-index="1">React,</span>
+            <span class="fragment appear two" data-fragment-index="1">Vue,</span>
+            <span class="fragment appear three" data-fragment-index="1">Ember,</span>
             <span class="fragment appear" data-fragment-index="1" style="animation-delay:1.0s">Angular,<br></span>
             <span class="fragment appear" data-fragment-index="1" style="animation-delay:1.2s">D3,</span>
             <span class="fragment appear" data-fragment-index="1" style="animation-delay:1.4s">Jest,</span>
@@ -48,34 +48,34 @@
       </section>
       <section>
         <section>
-          <h1 class="chapter"></h1>
+          <h1>1</h1>
           <h2>Modern Web</h2>
           <h1 class="title-script-smaller">Development</h1>
         </section>
         <section>
           <h2>Web-development in 2009</h2>
-          <pre style="width:60%;"><code class="lang-xml hljs" style="padding:15px">&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+          <pre style="width:60%;" class="section-appear"><code class="lang-xml hljs" style="padding:15px">&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;</code></pre>
         </section>
         <section>
           <h2>Web-development in 2019</h2>
-          <pre style="width:80%;"><code class="lang-xml hljs" style="padding:15px">ℹ ｢wds｣: Project is running at https://localhost:8080/
+          <pre style="width:80%;" class="section-appear"><code class="lang-xml hljs" style="padding:15px">ℹ ｢wds｣: Project is running at https://localhost:8080/
 Version: webpack 4.35.0
 Time: 24334ms
     ...
     + 1388 hidden modules
 ℹ ｢wdm｣: Compiled successfully.
 </code></pre>
-          <p>
+          <p class="section-appear two">
             Just like <a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f">2016</a>?
           </p>
         </section>
         <section style="display: flex; flex-direction: column;">
-          <p><span class="bold">What happened?</span> Projects got bigger.<br>People do not like big files.</p>
-          <p><span class="bold">But isn't there a module system now?</span> Jup.</p>
-          <p><span class="bold">Supported by all major browsers?</span> Possibly.</p>
-          <p><span class="bold">But couldn't I just use these modules…</span></p>
-          <h3>Development without a build step?</h3>
+          <p><span class="bold">What happened?</span> <span class="fragment" data-fragment-index="1">Projects got bigger.<br>People do not like big files.</span></p>
+          <p><span class="bold fragment" data-fragment-index="2">But isn't there a module system now?</span> <span class="fragment appear" data-fragment-index="2">Jup.</span></p>
+          <p><span class="bold fragment" data-fragment-index="3">Supported by all major browsers?</span> <span class="fragment appear" data-fragment-index="3">Possibly.</span></p>
+          <p><span class="bold fragment" data-fragment-index="4">But couldn't I just use these modules…</span></p>
+          <h3 class="fragment appear" data-fragment-index="4">Development without a build step?</h3>
           <aside class="notes">
             <ol>
               <li>Show basic setup without code-splitting</li>
@@ -90,10 +90,10 @@ Time: 24334ms
             class="bold-small">create-es-react-app</a> by <span
             class="bold">Luke Jackson</span>,
           </p>
-          <p>
+          <p class="section-appear">
             featuring
           </p>
-          <p>
+          <p class="section-appear two">
             <a
               href="https://github.com/lukejacksonn/es-react"
               class="bold-small">es-react</a>, <a
@@ -112,24 +112,24 @@ Time: 24334ms
         <section>
           <h3>Limitations</h3>
           <ul>
-            <li>
+            <li class="section-appear">
               Libraries need to be ES modules<br>
-              ☞ Make PRs, create forks
+              <span class="fragment">☞ Make PRs, create forks</span>
             </li>
-            <li>
+            <li class="fragment">
               Imports need to be relative<br>
-              ☞ Use <a href="https://github.com/WICG/import-maps">import maps</a> in development<br>
+              <span class="fragment">☞ Use <a href="https://github.com/WICG/import-maps">import maps</a> in development<br>
               <span style="font-size:30px">(chrome://flags → All experimental built-in modules)</span><br>
               <pre style="display:inline-block;width:inherit"><code>&lt;script type=&quot;importmap&quot;&gt;{&quot;imports&quot;: {
     &quot;es-react&quot;: &quot;./node_modules/es-react/index.js&quot;
-  }}&lt;/script&gt;</code></pre>
+  }}&lt;/script&gt;</code></pre></span>
             </li>
           </ul>
         </section>
       </section>
       <section>
         <section>
-          <h1 class="chapter"></h1>
+          <h1>2</h1>
           <h2>Isomorphic Bundling and</h2>
           <h1 class="title-script-smaller">Code Splitting</h1>
           <aside class="notes">
@@ -143,7 +143,7 @@ Time: 24334ms
               <p style="text-align: left;margin-right:10px;" class="fragment appear" data-fragment-index="1">
                 Modules are wrapped in functions in tables in each chunk.
               </p>
-              <p style="text-align: left;margin-right:10px;animation-delay:0.6s" class="fragment appear" data-fragment-index="1">
+              <p style="text-align: left;margin-right:10px;" class="fragment appear two" data-fragment-index="1">
                 The runtime knows how to load each module.
               </p>
             </div>
@@ -166,7 +166,7 @@ Time: 24334ms
   "Entry B"
 ]</code></pre>
                 or
-                <pre class="section-appear" style="animation-delay:0.6s"><code class="lang-javascript hljs" style="padding:15px">input: {
+                <pre class="section-appear two"><code class="lang-javascript hljs" style="padding:15px">input: {
   nameA: "Entry A",
   nameB: "Entry B"
 }</code></pre>
@@ -210,7 +210,7 @@ Time: 24334ms
         </section>
         <section>
           <h3>How is this "isomorphic"?</h3>
-          <p class="section-appear" style="animation-delay: 0.4s"><span class="bold">No added wrappers</span>, there is a 1-to-1 equivalence<br>between
+          <p class="section-appear"><span class="bold">No added wrappers</span>, there is a 1-to-1 equivalence<br>between
                                                                                                              relevant bindings
           </p>
           <p class="fragment">You can <span class="bold">bundle it again</span> for the same output.</p>
@@ -220,7 +220,7 @@ Time: 24334ms
           <div
             style="display:grid;grid-template-columns:min-content max-content;grid-template-rows:max-content min-content max-content min-content;justify-items: flex-start; justify-content: center;align-items: flex-start;">
             <div style="grid-row:1/2;grid-column:1/2" class="section-appear"><span class="bold">BUILD PHASE</span></div>
-            <pre style="grid-row:2/3;grid-column:1/2;width:100%;animation-delay:0.6s" class="section-appear"><code
+            <pre style="grid-row:2/3;grid-column:1/2;width:100%;" class="section-appear two"><code
               class="lang-javascript hljs" style="padding:15px">const bundle = await
   rollup.rollup(
     inputOptions
@@ -258,9 +258,9 @@ Time: 24334ms
           <h3>Generating Chunks</h3>
           <ul>
             <li class="section-appear">"Colors" = random hashes</li>
-            <li class="section-appear" style="animation-delay:0.6s">
+            <li class="section-appear two">
               "Mixing colors" = XOR hashes
-              <p class="section-appear" style="animation-delay:0.8s">→ grouped modules</p>
+              <p class="section-appear three">→ grouped modules</p>
             </li>
             <li class="fragment">Determine chunk imports/exports</li>
             <li class="fragment">Generate façade (reexport) chunks<br>for entry modules if necessary</li>
@@ -300,7 +300,7 @@ Time: 24334ms
       </section>
       <section>
         <section>
-          <h1 class="chapter"></h1>
+          <h1>3</h1>
           <h2>Next steps for the</h2>
           <h1 class="title-script-smaller">Future</h1>
         </section>
@@ -308,7 +308,7 @@ Time: 24334ms
           <h3>Improved dynamic import code-splitting</h3>
           <div style="display:inline-flex">
             <div style="width:320px;text-align: left">
-              <p>
+              <p class="section-appear">
                 <span class="bold">Today:</span> Dynamic imports are regular entry points
               </p>
               <p class="fragment fade-in" data-fragment-index="1">
@@ -332,17 +332,17 @@ Time: 24334ms
           <h3>Statement-level code-splitting</h3>
           <div style="display:inline-flex;text-align: left">
             <div style="display: flex;flex-direction: column">
-              <div>
+              <div class="section-appear">
                 entry-a.js
                 <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs" data-noescape>import {x} from './lib.js'<div
                   class="fragment marker yellow" data-fragment-index="1">console.log(x)</div></code></pre>
               </div>
-              <div>
+              <div class="section-appear two">
                 entry-b.js
                 <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs" data-noescape>import {y} from './lib.js'<div
                   class="fragment marker blue" data-fragment-index="2">console.log(y)</div></code></pre>
               </div>
-              <div>
+              <div class="section-appear three">
                 lib.js
                 <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs" data-noescape><div
                   class="fragment marker yellow" data-fragment-index="1"><div class="fragment marker cyan" data-fragment-index="2">console.log('Hello')</div></div><div
@@ -375,7 +375,7 @@ console.log(y)</div></code></pre>
         <section>
           <h3>Object property tree-shaking</h3>
           <div style="display:inline-flex;text-align: left">
-            <div style="display: flex;flex-direction: column">
+            <div class="section-appear" style="display: flex;flex-direction: column">
               main.js
               <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs">const config = {
   title: 'My Object',

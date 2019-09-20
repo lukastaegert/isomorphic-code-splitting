@@ -69,13 +69,14 @@ section.future .section-appear {
   animation-delay: 0.4s;
 }
 
-body {
-  counter-reset: chapter
+.section-appear.two,
+.appear.current-fragment.two {
+  animation-delay: 0.6s;
 }
 
-.chapter::before {
-  counter-increment: chapter;
-  content: counter(chapter);
+.section-appear.three,
+.appear.current-fragment.three {
+  animation-delay: 0.8s;
 }
 
 ul.hands {
