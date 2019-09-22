@@ -17,7 +17,9 @@ export default () => {
         <${LazyComponent} />
       <//>
     ` : html`
-      <button onClick="${() => setComponentShown(true)}">Show Lazy Component</button>
+      <button onClick="${() => setComponentShown(true)}">
+        Show Lazy Component
+      </button>
     `)}
   </div>
   `;
