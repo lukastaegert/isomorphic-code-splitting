@@ -21,9 +21,14 @@ button {
   margin: 0 10px;
   outline: none;
   font: inherit;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 button:hover {
-  box-shadow: 1px 1px 2px black;
-  cursor: pointer;
+  background-color: rgba(214, 145, 6, 0.31);
+}
+
+button:active {
+  background-color: rgb(255, 173, 6);
 }

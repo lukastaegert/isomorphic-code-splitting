@@ -1,16 +1,9 @@
 import Counter from './Counter.js';
 import LazyComponentLoader from './LazyComponentLoader.js';
-import {React, html, css} from '../shared.js';
-
-const styles = css`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+import {React, html} from '../shared.js';
 
 export default () => html`
-  <div className=${styles}>
+  <div>
     <${Counter} count="1" />
     <${LazyComponentLoader} />
   </div>

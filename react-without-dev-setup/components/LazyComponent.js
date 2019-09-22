@@ -3,6 +3,7 @@ import {React, html, css} from '../shared.js';
 const styles = css`
   font-size: 30px;
   position: relative;
+  text-align: center;
   animation: slidein 1s ease-out;
   
   @keyframes slidein {
@@ -19,5 +20,5 @@ const styles = css`
 `;
 
 export default () => html`
-  <div className=${styles}>I am really lazy 😎</div>
+  <div className=${styles}>I am here 🧞‍♂️<br />when you need me</div>
 `;
