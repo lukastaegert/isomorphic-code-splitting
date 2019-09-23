@@ -1,4 +1,4 @@
-import {React, html, css} from '../shared.js';
+import {css, html, React} from '../shared.js';
 
 const styles = css`
   display: flex;

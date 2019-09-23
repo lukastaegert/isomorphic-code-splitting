@@ -1,9 +1,11 @@
+import {html, React} from '../shared.js';
 import Counter from './Counter.js';
 import LazyComponentLoader from './LazyComponentLoader.js';
-import {React, html} from '../shared.js';
+import Title from './Title.js';
 
 export default () => html`
   <div>
+    <${Title} />
     <${Counter} count="1" />
     <${LazyComponentLoader} />
   </div>
