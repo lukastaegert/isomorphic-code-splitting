@@ -3,7 +3,7 @@
   "scripts": {
     "start": "servor",
     "build": "npx rollup -c",
-    "serve-build": "npm run build && servor dist index.html 8081 5001"
+    "serve-build": "servor dist index.html 8081 5001 | npx rollup -cw"
   },
   "license": "Apache-2.0",
   "dependencies": {
