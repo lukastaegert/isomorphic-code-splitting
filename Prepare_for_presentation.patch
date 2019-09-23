@@ -1,0 +1,88 @@
+Index: react-without-dev-setup/components/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- react-without-dev-setup/components/App.js	(date 1569220451000)
++++ react-without-dev-setup/components/App.js	(date 1569220895496)
+@@ -1,12 +1,10 @@
+ import {html, React} from '../shared.js';
+ import Counter from './Counter.js';
+-import LazyComponentLoader from './LazyComponentLoader.js';
+ import Title from './Title.js';
+ 
+ export default () => html`
+   <div>
+     <${Title} />
+     <${Counter} count="1" />
+-    <${LazyComponentLoader} />
+   </div>
+ `;
+Index: react-without-dev-setup/components/LazyComponentLoader.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- react-without-dev-setup/components/LazyComponentLoader.js	(date 1569220451000)
++++ react-without-dev-setup/components/LazyComponentLoader.js	(date 1569220895505)
+@@ -1,6 +1,5 @@
+ import {css, html, React} from '../shared.js';
+-
+-const LazyComponent = React.lazy(() => import('./LazyComponent.js'));
++import LazyComponent from './LazyComponent.js';
+ 
+ const styles = css`
+   display: flex;
+@@ -13,9 +12,7 @@
+   return html`
+   <div className=${styles}>
+     ${(componentShown ? html`
+-      <${React.Suspense} fallback=${html`<div>Loading...</div>`}>
+-        <${LazyComponent} />
+-      <//>
++      <${LazyComponent} />
+     ` : html`
+       <button onClick="${() => setComponentShown(true)}">
+         Show Lazy Component
+Index: react-without-dev-setup/rollup.config.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- react-without-dev-setup/rollup.config.js	(date 1569220451000)
++++ react-without-dev-setup/rollup.config.js	(date 1569220895510)
+@@ -1,7 +1,5 @@
+ import fs from 'fs';
+ import path from 'path';
+-import {terser} from 'rollup-plugin-terser';
+-import babel from 'rollup-plugin-babel';
+ import rimraf from 'rimraf';
+ 
+ export default {
+@@ -12,14 +10,6 @@
+   },
+   plugins: [
+     {
+-      resolveId(id, importer) {
+-        if (id.endsWith('es-react/index.js')) {
+-          return path.resolve(
+-            path.dirname(importer),
+-            id.replace('es-react', 'es-react-production')
+-          );
+-        }
+-      },
+       generateBundle() {
+         this.emitFile({
+           type: 'asset',
+@@ -33,10 +23,6 @@
+         });
+         rimraf.sync(path.resolve(__dirname, 'dist'));
+       }
+-    },
+-    babel({
+-      plugins: [['htm', {pragma: 'React.createElement'}], '@babel/syntax-dynamic-import']
+-    }),
+-    terser()
++    }
+   ]
+ };
