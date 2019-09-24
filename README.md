@@ -1,5 +1,7 @@
 # Isomorphic code-splitting for the future of web development
 
+☞ [Slides](https://lukastaegert.github.io/isomorphic-code-splitting)
+
 ☞ [Example project](react-without-dev-setup)
 
 featuring
