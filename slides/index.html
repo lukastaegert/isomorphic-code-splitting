@@ -53,29 +53,36 @@
           <h1 class="title-script-smaller">Development</h1>
         </section>
         <section>
-          <h2>Web-development in 2009</h2>
+          <h2>Web-development <span class="fragment">in 2009</span></h2>
           <pre style="width:60%;" class="section-appear"><code class="lang-xml hljs" style="padding:15px">&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;</code></pre>
+          <aside class="notes">
+            Web-development, instant gratification—<br>
+            confused it with the past
+          </aside>
         </section>
         <section>
           <h2>Web-development in 2019</h2>
-          <pre style="width:80%;" class="section-appear"><code class="lang-xml hljs" style="padding:15px">ℹ ｢wds｣: Project is running at https://localhost:8080/
+          <pre style="width:80%;" class="section-appear"><code class="lang-xml hljs" style="padding:15px" data-noescape>ℹ ｢wds｣: Project is running at https://localhost:8080/
 Version: webpack 4.35.0
-Time: 24334ms
+<span class="fragment stand-out">Time: 24334ms</span>
     ...
     + 1388 hidden modules
 ℹ ｢wdm｣: Compiled successfully.
 </code></pre>
-          <p class="section-appear two">
-            Just like <a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f">2016</a>?
-          </p>
         </section>
         <section style="display: flex; flex-direction: column;">
-          <p><span class="bold">What happened?</span> <span class="fragment" data-fragment-index="1">Projects got bigger.<br>People do not like big files.</span></p>
-          <p><span class="bold fragment" data-fragment-index="2">But isn't there a module system now?</span> <span class="fragment appear" data-fragment-index="2">Jup.</span></p>
-          <p><span class="bold fragment" data-fragment-index="3">Supported by all major browsers?</span> <span class="fragment appear" data-fragment-index="3">Possibly.</span></p>
-          <p><span class="bold fragment" data-fragment-index="4">But couldn't I just use these modules…</span></p>
-          <h3 class="fragment appear" data-fragment-index="4">Development without a build step?</h3>
+          <p><span class="bold">What happened?</span> <span class="section-appear">Projects got bigger.<br>People do not like big files.</span>
+          </p>
+          <p><span class="bold fragment" data-fragment-index="1">But isn't there a module system now?</span> <span
+            class="fragment appear" data-fragment-index="1">Jup.</span></p>
+          <p><span class="bold fragment" data-fragment-index="2">Supported by all major browsers?</span> <span
+            class="fragment appear" data-fragment-index="2">Possibly.</span></p>
+          <p><span class="bold fragment" data-fragment-index="3">But couldn't I just use these modules…</span></p>
+        </section>
+        <section>
+          <h3>Make Web-Development fun again</h3>
+          <h1 class="section-appear title-script-smaller">Today</h1>
           <aside class="notes">
             <ol>
               <li>Show basic setup without code-splitting</li>
@@ -83,17 +90,15 @@ Time: 24334ms
               <li>Optimize setup (react prod, terser, babel)</li>
             </ol>
           </aside>
-        </section>
-        <section>
-          <p>Heavily based on <a
+          <p class="fragment" data-fragment-index="1">Heavily based on <a
             href="https://github.com/lukejacksonn/create-es-react-app"
             class="bold-small">create-es-react-app</a> by <span
             class="bold">Luke Jackson</span>,
           </p>
-          <p class="section-appear">
+          <p class="fragment appear" data-fragment-index="1">
             featuring
           </p>
-          <p class="section-appear two">
+          <p class="fragment appear two" data-fragment-index="1">
             <a
               href="https://github.com/lukejacksonn/es-react"
               class="bold-small">es-react</a>, <a
@@ -114,11 +119,11 @@ Time: 24334ms
           <ul>
             <li class="section-appear">
               Libraries need to be ES modules<br>
-              <span class="fragment">☞ Make PRs, create forks</span>
+              <span class="section-appear two">☞ Make PRs, create forks</span>
             </li>
-            <li class="fragment">
+            <li class="fragment" data-fragment-index="1">
               Imports need to be relative<br>
-              <span class="fragment">☞ Use <a href="https://github.com/WICG/import-maps">import maps</a> in development<br>
+              <span class="fragment appear" data-fragment-index="1">☞ Use <a href="https://github.com/WICG/import-maps">import maps</a> in development<br>
               <span style="font-size:30px">(chrome://flags → All experimental built-in modules)</span><br>
               <pre style="display:inline-block;width:inherit"><code>&lt;script type=&quot;importmap&quot;&gt;{&quot;imports&quot;: {
     &quot;es-react&quot;: &quot;./node_modules/es-react/index.js&quot;
@@ -135,24 +140,6 @@ Time: 24334ms
           <aside class="notes">
             Show dynamic chunking demo after this slide.
           </aside>
-        </section>
-        <section>
-          <h3>Traditional code-splitting</h3>
-          <div style="display:inline-flex">
-            <div style="width:320px;">
-              <p style="text-align: left;margin-right:10px;" class="fragment appear" data-fragment-index="1">
-                Modules are wrapped in functions in tables in each chunk.
-              </p>
-              <p style="text-align: left;margin-right:10px;" class="fragment appear two" data-fragment-index="1">
-                The runtime knows how to load each module.
-              </p>
-            </div>
-            <div style="position:relative; width:600px; height: 600px;">
-              <img src="img/modules.svg" style="position:absolute;top:0;left:0;right:0" class="fragment fade-out" data-fragment-index="1">
-              <img src="img/runtime-chunking.svg" style="position:absolute;top:0;left:0;right:0;" class="fragment"
-                   data-fragment-index="1">
-            </div>
-          </div>
         </section>
         <section>
           <h3>Rollup code-splitting</h3>
@@ -174,12 +161,13 @@ Time: 24334ms
               <div style="text-align:left;position:absolute;top:0;left:0;right:0;"
                    class="fragment fade-in-then-out"
                    data-fragment-index="1">
-                Assign the same "color" to each direct dependency of an entry module.
+                Assign the same <span class="bold">color</span> (random hash) to each direct dependency of an entry
+                module.
               </div>
               <div style="text-align:left;position:absolute;top:0;left:0;right:0;"
                    class="fragment fade-in-then-out"
                    data-fragment-index="2">
-                Mix colors if necessary.
+                <span class="bold">Mix colors</span> (XOR hashes) if necessary.
               </div>
               <div style="text-align:left;position:absolute;top:0;left:0;right:0;"
                    class="fragment fade-in"
@@ -211,60 +199,25 @@ Time: 24334ms
         <section>
           <h3>How is this "isomorphic"?</h3>
           <p class="section-appear"><span class="bold">No added wrappers</span>, there is a 1-to-1 equivalence<br>between
-                                                                                                             relevant bindings
+            relevant bindings
           </p>
           <p class="fragment">You can <span class="bold">bundle it again</span> for the same output.</p>
         </section>
         <section>
-          <h3>Under the hood</h3>
-          <div
-            style="display:grid;grid-template-columns:min-content max-content;grid-template-rows:max-content min-content max-content min-content;justify-items: flex-start; justify-content: center;align-items: flex-start;">
-            <div style="grid-row:1/2;grid-column:1/2" class="section-appear"><span class="bold">BUILD PHASE</span></div>
-            <pre style="grid-row:2/3;grid-column:1/2;width:100%;" class="section-appear two"><code
-              class="lang-javascript hljs" style="padding:15px">const bundle = await
-  rollup.rollup(
-    inputOptions
-  )</code></pre>
-            <div style="grid-row:1/3;grid-column:2/3;margin-bottom: 15px;">
-              <ul>
-                <li class="fragment" data-fragment-index="1">
-                  build module graph<br>
-                  (resolve→load→transform<br>→parse⇢link modules)
-                </li>
-                <li class="fragment" data-fragment-index="2">mark included statements</li>
-                <li style="color:blue" class="fragment" data-fragment-index="3">generate chunks</li>
-              </ul>
+          <h3>Contrast "traditional" code-splitting</h3>
+          <div style="display:inline-flex">
+            <div style="width:320px;">
+              <p style="text-align: left;margin-right:10px;" class="section-appear">
+                Modules are wrapped in functions in tables in each chunk.
+              </p>
+              <p style="text-align: left;margin-right:10px;" class="section-appear two">
+                Only the runtime knows how to load each module.
+              </p>
             </div>
-            <div style="grid-row:3/4;grid-column:1/2" class="fragment" data-fragment-index="4"><span class="bold">GENERATE PHASE</span>
-            </div>
-            <pre style="grid-row:4/5;grid-column:1/2;width:100%;" class="fragment appear" data-fragment-index="4"><code
-              class="lang-javascript hljs" style="padding:15px">const result = await
-  bundle.generate(
-    outputOptions
-  )</code></pre>
-            <div style="grid-row:3/5;grid-column:2/3">
-              <ul>
-                <li class="fragment" data-fragment-index="5">
-                  pre-render chunks<br>
-                  (remove imports, exports<br>and unused, fix variable names)
-                </li>
-                <li class="fragment" data-fragment-index="6">determine chunk names</li>
-                <li class="fragment" data-fragment-index="7">render chunk imports/exports</li>
-              </ul>
+            <div style="position:relative; width:600px; height: 600px;">
+              <img src="img/runtime-chunking.svg" style="position:absolute;top:0;left:0;right:0;">
             </div>
           </div>
-        </section>
-        <section>
-          <h3>Generating Chunks</h3>
-          <ul>
-            <li class="section-appear">"Colors" = random hashes</li>
-            <li class="section-appear two">
-              "Mixing colors" = XOR hashes
-              <p class="section-appear three">→ grouped modules</p>
-            </li>
-            <li class="fragment">Determine chunk imports/exports</li>
-            <li class="fragment">Generate façade (reexport) chunks<br>for entry modules if necessary</li>
-          </ul>
         </section>
         <section>
           <h3>Plugin support</h3>
@@ -276,22 +229,26 @@ Time: 24334ms
             </li>
             <li class="fragment" data-fragment-index="1">
               <span class="bold-small">fileName = <a
-                href="https://rollupjs.org/guide/en/#thisgetfilenamereferenceid-string--string">this.getFileName</a>(referenceId)</span> in
-                                                                                                                                         generateBundle
+                href="https://rollupjs.org/guide/en/#thisgetfilenamereferenceid-string--string">this.getFileName</a>(referenceId)</span>
+              in generateBundle
+              <p class="hand fragment appear" data-fragment-index="1">
+                parse entry points from an HTML file and<br>replace with generated chunks
+              </p>
             </li>
-            <li class="fragment appear" data-fragment-index="1"><span class="bold-small"><a
-              href="https://rollupjs.org/guide/en/#file-urls">import.meta.ROLLUP_FILE_URL</a>_referenceId</span> in modules
+            <li class="fragment appear" data-fragment-index="2"><span class="bold-small"><a
+              href="https://rollupjs.org/guide/en/#file-urls">import.meta.ROLLUP_FILE_URL</a>_referenceId</span> in
+              modules
+              <p class="hand fragment appear" data-fragment-index="2">
+                create chunks for workers
+              </p>
             </li>
-          </ul>
-          <ul class="hands">
-            <li class="fragment">parse entry points from an HTML file and replace with generated chunks</li>
-            <li class="fragment">create chunks for workers</li>
           </ul>
         </section>
         <section>
           <h3>Supporting legacy browsers</h3>
           <ul class="hands">
-            <li class="section-appear"><a class="bold" href="https://github.com/uupaa/dynamic-import-polyfill">Polyfill dynamic import</a> for ES6+ browsers via
+            <li class="section-appear"><a class="bold" href="https://github.com/uupaa/dynamic-import-polyfill">Polyfill
+              dynamic import</a> for ES6+ browsers via
               <span class="bold-small">dynamicImportFunction</span> option
             </li>
             <li class="fragment">Use <span class="bold">SystemJS/AMD</span> format for older browsers</li>
@@ -311,7 +268,7 @@ Time: 24334ms
               <p class="section-appear">
                 <span class="bold">Today:</span> Dynamic imports are regular entry points
               </p>
-              <p class="fragment fade-in" data-fragment-index="1">
+              <p class="fragment appear" data-fragment-index="1">
                 <span class="bold">Future:</span> Take already loaded modules into account
               </p>
             </div>
@@ -326,7 +283,7 @@ Time: 24334ms
                    data-fragment-index="1">
             </div>
           </div>
-          <p class="fragment"><span class="bold">Timeframe:</span> Soon!</p>
+          <p class="fragment appear two" data-fragment-index="1"><span class="bold">Timeframe:</span> Soon!</p>
         </section>
         <section>
           <h3>Statement-level code-splitting</h3>
@@ -345,9 +302,11 @@ Time: 24334ms
               <div class="section-appear three">
                 lib.js
                 <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs" data-noescape><div
-                  class="fragment marker yellow" data-fragment-index="1"><div class="fragment marker cyan" data-fragment-index="2">console.log('Hello')</div></div><div
-                  class="fragment marker yellow" data-fragment-index="1">export const x = 1</div><div class="fragment marker blue"
-                                                                                                      data-fragment-index="2">export const y = 2</div></code></pre>
+                  class="fragment marker yellow" data-fragment-index="1"><div class="fragment marker cyan"
+                                                                              data-fragment-index="2">console.log('Hello')</div></div><div
+                  class="fragment marker yellow" data-fragment-index="1">export const x = 1</div><div
+                  class="fragment marker blue"
+                  data-fragment-index="2">export const y = 2</div></code></pre>
               </div>
             </div>
             <div class="fragment" data-fragment-index="3">
@@ -370,34 +329,13 @@ console.log(y)</div></code></pre>
               </div>
             </div>
           </div>
-          <p class="fragment"><span class="bold">Timeframe:</span> Remote future</p>
+          <p class="fragment appear" data-fragment-index="3"><span class="bold">Timeframe:</span> Remote future</p>
         </section>
         <section>
-          <h3>Object property tree-shaking</h3>
-          <div style="display:inline-flex;text-align: left">
-            <div class="section-appear" style="display: flex;flex-direction: column">
-              main.js
-              <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs">const config = {
-  title: 'My Object',
-  attribute: 'totally ignored'
-}
-console.log(config.title)</code></pre>
-            </div>
-            <div class="fragment">
-              bundle.js
-              <pre style="width:inherit;margin:0 20px 20px 0"><code class="lang-javascript hljs">const config = {
-  title: 'My Object'
-}
-console.log(config.title)</code></pre>
-            </div>
-          </div>
-          <p class="fragment"><span class="bold">Timeframe:</span> Slightly less remote future</p>
-        </section>
-        <section>
-          <h3>To make this possible, we need</h3>
-          <h1 class="title-script-smaller">You</h1>
+          <h3>To make this <span class="section-appear">(and more)</span> possible, we need</h3>
+          <h1 class="title-script-smaller section-appear two">You</h1>
           <ul class="hands">
-            <li class="section-appear">Find bugs, fix bugs</li>
+            <li class="fragment">Find bugs, fix bugs</li>
             <li class="fragment">Improve documentation</li>
             <li class="fragment">Create plugins, maintain plugins</li>
             <li class="fragment">Drive discussions to shape the future</li>
@@ -432,18 +370,18 @@ console.log(config.title)</code></pre>
   </div>
   <script src="node_modules/reveal.js/js/reveal.js"></script>
   <script>
-    Reveal.initialize({
-      hash: true,
-      progress: true,
-      dependencies: [
-        {
-          src: 'node_modules/reveal.js/plugin/highlight/highlight.js',
-          async: true,
-          callback: () => hljs.initHighlightingOnLoad()
-        },
-        {src: 'node_modules/reveal.js/plugin/notes/notes.js'}
-      ]
-    });
+      Reveal.initialize({
+          hash: true,
+          progress: true,
+          dependencies: [
+              {
+                  src: 'node_modules/reveal.js/plugin/highlight/highlight.js',
+                  async: true,
+                  callback: () => hljs.initHighlightingOnLoad()
+              },
+              {src: 'node_modules/reveal.js/plugin/notes/notes.js'}
+          ]
+      });
   </script>
 </body>
 </html>

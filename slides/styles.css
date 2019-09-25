@@ -54,6 +54,19 @@
   }
 }
 
+@keyframes stand-out {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50px;
+    transform: rotate(-10deg);
+    font-size: 90px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black, 2px 2px 12px black;
+  }
+}
+
 section.future .section-appear {
   animation: none;
 }
@@ -87,9 +100,21 @@ ul.hands li {
   margin: 10px 0;
 }
 
-ul.hands li::before {
+ul.hands li::before,
+.hand::before {
   content: '☞';
   margin-right: 10px;
+}
+
+.reveal .slides section .fragment.stand-out {
+  opacity: 1;
+  visibility: inherit;
+  position: absolute;
+  display: inline-block;
+}
+
+.reveal .slides section .fragment.stand-out.visible {
+  animation: stand-out 0.3s ease-in both;
 }
 
 .reveal .slides section .fragment.marker {
