@@ -12,12 +12,9 @@ export default {
   },
   plugins: [
     {
-      resolveId(id, importer) {
+      resolveId(id) {
         if (id.endsWith('es-react/index.js')) {
-          return path.resolve(
-            path.dirname(importer),
-            id.replace('es-react', 'es-react-production')
-          );
+          return id.replace('es-react', 'es-react-production');
         }
       },
       generateBundle() {
