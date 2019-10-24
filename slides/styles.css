@@ -96,14 +96,18 @@ ul.hands {
   list-style-type: none;
 }
 
-ul.hands li {
+ul.hands > li {
   margin: 10px 0;
 }
 
-ul.hands li::before,
+ul.hands > li::before,
 .hand::before {
   content: '☞';
   margin-right: 10px;
+}
+
+ul.hands ul {
+  list-style-type: disc;
 }
 
 .reveal .slides section .fragment.stand-out {
